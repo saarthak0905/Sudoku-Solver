@@ -1,7 +1,8 @@
 #include <iostream>
 #include <cmath>
 using namespace std;
-const int D = 9 ;
+const int D = 9 ; //Size of Sudoku to be solved
+//******************************************************************
 void printBoard(int board[D][D], int n)
 {
     for(int i=0; i<n; i++)
@@ -14,6 +15,8 @@ void printBoard(int board[D][D], int n)
         cout<<endl;
     }
 }
+//*****************************************************************
+//boolean function to check whether the chosen no. can be placed at given position
 bool canPlace(int board[D][D], int n, int row, int col, int cnum )
 {
     if(board[row][col] !=0)
@@ -41,6 +44,7 @@ bool canPlace(int board[D][D], int n, int row, int col, int cnum )
     }
     return true;
 }
+//**************************************************************
 bool sudokuSolver(int board[D][D], int n, int row, int col)
 {
     if(row==n)
@@ -73,8 +77,10 @@ bool sudokuSolver(int board[D][D], int n, int row, int col)
     }
     return false;
 }
+//**********************************************************
 int main()
 {
+    //Enter your own sudoku question here with empty places initialized with zero value
 
     int board[D][D] =
     {
@@ -88,10 +94,13 @@ int main()
         {0, 0, 0, 4, 1, 9, 0, 0, 5},
         {0, 0, 0, 0, 8, 0, 0, 7, 9}
     };
-    int n; cin>>n;
+    cout<<"Enter value of n for n*n Sudoko:\n";
+    int n;
+    cin>>n; // n*n sudoku of the entered question to be solved. In this case n=9
     bool ans = sudokuSolver(board, n, 0, 0);
     if(ans)
     {
+        cout<<"\nThe Solved Sudoku looks like : \n";
         printBoard(board, n);
     }
     else
