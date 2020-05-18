@@ -55,11 +55,11 @@ bool sudokuSolver(int board[D][D], int n, int row, int col)
     }
     if(board[row][col] != 0)
     {
-        return sudokuSolver(board, n, row, col + 1);
+        return sudokuSolver(board, n, row, col + 1);//Recursive Call
     }
     for(int cnum = 1; cnum<=n; cnum++)
     {
-        if(canPlace(board, n, row, col, cnum))
+        if(canPlace(board, n, row, col, cnum))//Checking Condition
         {
             board[row][col] = cnum;
             bool ans = sudokuSolver(board, n, row, col + 1);
