@@ -44,13 +44,13 @@ bool canPlace(int board[D][D], int n, int row, int col, int cnum )
 }
 bool sudokuSolver(int board[D][D], int n, int row, int col)
 {
-    if(row==n)
+    if(row==n) // Base Case
     {
         return true;
     }
     if(col==n)
     {
-        return sudokuSolver(board, n, row + 1, 0);
+        return sudokuSolver(board, n, row + 1, 0);//Recursive Call
 
     }
     if(board[row][col] != 0)
